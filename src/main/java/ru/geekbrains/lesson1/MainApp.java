@@ -3,17 +3,40 @@ package ru.geekbrains.lesson1;
 public class MainApp {
 
     public static void main(String[] args) {
-        Cat cat = new Cat("Barsik");
-        System.out.println("Can cat " + cat.name + " jump for 1 m? " + cat.jump(1));
-        System.out.println("Can cat " + cat.name + " run for 100 m? " + cat.run(100));
-        System.out.println("Can cat " + cat.name + " swim for 100 m? " + cat.swim(10));
+
+        Cat[] cat = new Cat[5];
+        for (int i = 0; i < 5; i++) {
+            cat[i] = new Cat("Barsik" + i, 5);
+        }
+
+        Plate plate = new Plate(17);
+
+        plate.info();
+        for (int i = 0; i < 5; i++) {
+            cat[i].eat(plate);
+            plate.info();
+        }
 
         System.out.println();
+        for (int i = 0; i < 5; i++) {
+            cat[i].info();
+        }
 
-        Dog dog = new Dog("Bobik");
-        System.out.println("Can dog " + dog.name + " jump for 1 m? " + dog.jump(1));
-        System.out.println("Can dog " + dog.name + " run for 100 m? " + dog.run(100));
-        System.out.println("Can dog " + dog.name + " swim for 100 m? " + dog.swim(10));
+        System.out.println();
+        System.out.println("Добавили 8 еды в тарелку. ");
+        plate.addMeal(8);
+        System.out.println();
+
+        plate.info();
+        for (int i = 0; i < 5; i++) {
+            cat[i].eat(plate);
+            plate.info();
+        }
+
+        System.out.println();
+        for (int i = 0; i < 5; i++) {
+            cat[i].info();
+        }
     }
 
 }
